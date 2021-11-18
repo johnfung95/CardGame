@@ -7,10 +7,12 @@
         <entry key="app/src/main/res/drawable/cardbackground.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.27395833333333336" />
         <entry key="app/src/main/res/layout/createbot.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/firststart.xml" value="0.25" />
         <entry key="app/src/main/res/layout/goodbye.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/instruction.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/instructions.xml" value="0.3082706766917293" />
+        <entry key="app/src/main/res/layout/instructions.xml" value="0.45" />
         <entry key="app/src/main/res/layout/maingame.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/playgame.xml" value="0.25" />
       </map>
     </option>
   </component>
