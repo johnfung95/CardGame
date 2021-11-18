@@ -12,28 +12,32 @@ import android.widget.ImageView
 import android.widget.TextView
 import kotlin.random.Random
 
-public var x = 0
-public val cardArr = arrayListOf(R.drawable.card01, R.drawable.card02, R.drawable.card03, R.drawable.card04, R.drawable.card05, R.drawable.card06, R.drawable.card07, R.drawable.card08, R.drawable.card09, R.drawable.card10, R.drawable.card11, R.drawable.card12, R.drawable.card13, R.drawable.card14, R.drawable.card15, R.drawable.card16, R.drawable.card17, R.drawable.card18, R.drawable.card19, R.drawable.card20, R.drawable.card21, R.drawable.card22, R.drawable.card23, R.drawable.card24, R.drawable.card25, R.drawable.card26, R.drawable.card27, R.drawable.card28, R.drawable.card29, R.drawable.card30, R.drawable.card31, R.drawable.card32, R.drawable.card33, R.drawable.card34, R.drawable.card35, R.drawable.card36, R.drawable.card37, R.drawable.card38, R.drawable.card39, R.drawable.card40, R.drawable.card41, R.drawable.card42, R.drawable.card43, R.drawable.card44, R.drawable.card45, R.drawable.card46, R.drawable.card47, R.drawable.card48, R.drawable.card49, R.drawable.card50, R.drawable.card51, R.drawable.card52)
+var x: Int = 0
+var round: Int = 0
+var cardArr = arrayListOf(R.drawable.card01, R.drawable.card02, R.drawable.card03, R.drawable.card04, R.drawable.card05, R.drawable.card06, R.drawable.card07, R.drawable.card08, R.drawable.card09, R.drawable.card10, R.drawable.card11, R.drawable.card12, R.drawable.card13, R.drawable.card14, R.drawable.card15, R.drawable.card16, R.drawable.card17, R.drawable.card18, R.drawable.card19, R.drawable.card20, R.drawable.card21, R.drawable.card22, R.drawable.card23, R.drawable.card24, R.drawable.card25, R.drawable.card26, R.drawable.card27, R.drawable.card28, R.drawable.card29, R.drawable.card30, R.drawable.card31, R.drawable.card32, R.drawable.card33, R.drawable.card34, R.drawable.card35, R.drawable.card36, R.drawable.card37, R.drawable.card38, R.drawable.card39, R.drawable.card40, R.drawable.card41, R.drawable.card42, R.drawable.card43, R.drawable.card44, R.drawable.card45, R.drawable.card46, R.drawable.card47, R.drawable.card48, R.drawable.card49, R.drawable.card50, R.drawable.card51, R.drawable.card52)
+val handler = Handler(Looper.getMainLooper())
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+        Log.d("Debug", "Start displaying instructions")
         setContentView(R.layout.instructions)
     }
 
-    public fun createBot(v: View) {
+    fun createBot(v: View) {
+        Log.d("Debug", "fun createBot Start")
         /*TODO: do a little animation
         - to make the ... flash for a couple of times*/
-
         setContentView(R.layout.createbot)
-        val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
             Log.d("Debug", "creating some wait for while creating bot")
             setContentView(R.layout.playgame)
         }, 3000)
+        Log.d("Debug", "fun createBot End")
     }
 
-    public fun startDrawCard(v:View) {
+    fun startDrawCard(v:View) {
+        Log.d("Debug", "fun startDrawCard Start")
         val playcard1 = findViewById<ImageView>(R.id.playercard1)
         val playcard2 = findViewById<ImageView>(R.id.playercard2)
         val robotcard1 = findViewById<ImageView>(R.id.robotcard1)
@@ -97,37 +101,75 @@ class MainActivity : AppCompatActivity() {
             duration = 2000
             start()
         }
+
+        playDrawCard(v)
+        Log.d("Debug", "fun startDrawCard End")
     }
 
-    public fun playDrawCard(v:View) {
+    fun playDrawCard(v:View) {
+        Log.d("Debug", "fun playDrawCard Start")
         val playCardTv1 = findViewById<ImageView>(R.id.playercard1)
         val playCardTv2 = findViewById<ImageView>(R.id.playercard2)
         val robotCardTv1 = findViewById<ImageView>(R.id.robotcard1)
         val robotCardTv2 = findViewById<ImageView>(R.id.robotcard2)
+        val playerScore = findViewById<TextView>(R.id.playerscore)
+        val robotScore = findViewById<TextView>(R.id.robotscore)
+        val centerText = findViewById<TextView>(R.id.centertext)
+
+        round += 1
+        Log.d("Debug", "round: " + round)
 
         // TODO: consider making an interface for robot and player
         var maxCount = cardArr.count()
+        Log.d("Debug", "maxCount: " + maxCount)
         playerGetCardsFromArray(playCardTv1,  maxCount, true)
         maxCount = cardArr.count()
+        Log.d("Debug", "maxCount: " + maxCount)
         playerGetCardsFromArray(playCardTv2,  maxCount, true)
         maxCount = cardArr.count()
+        Log.d("Debug", "maxCount: " + maxCount)
         playerGetCardsFromArray(robotCardTv1, maxCount, false)
         maxCount = cardArr.count()
+        Log.d("Debug", "maxCount: " + maxCount)
         playerGetCardsFromArray(robotCardTv2, maxCount, false)
+        maxCount = cardArr.count()
+        Log.d("Debug", "maxCount: " + maxCount)
+
+        if (maxCount == 0) {
+            Log.d("Debug", "no more cards and go to calculate scores")
+            calculatePoints(v)
+        } else {
+            centerText.text = "Round: " + round + "\nCards Left: " + maxCount
+            playerScore.text = "Player Scores: " + 0
+            robotScore.text = "Robot Scores: " + 0
+        }
+        Log.d("Debug", "fun calculatePoints Start")
     }
 
     private fun playerGetCardsFromArray(tv:ImageView,  maxCount:Int, isPlayer: Boolean = false) {
+        Log.d("Debug", "fun playerGetCardsFromArray Start")
         var n = Random.nextInt(maxCount)
         Log.d("Debug","n: " + n)
+        Log.d("Debug","cardArr[n]: " + cardArr[n])
         if (isPlayer) {
             tv.setImageResource(cardArr[n])
-            cardArr.drop(n)
+            cardArr.removeAt(n)
+            Log.d("Debug","cardArr.count(): " + cardArr.count())
         } else {
-            cardArr.drop(n)
+            cardArr.removeAt(n)
         }
+        Log.d("Debug", "fun playDrawCard End")
     }
 
-    public fun calculatePoints(v: View) {
+    fun calculatePoints(v: View) {
+        Log.d("Debug", "fun calculatePoints Start")
+        Log.d("Debug", "Display calculate score layout")
+        setContentView(R.layout.calscore)
 
+        handler.postDelayed({
+            Log.d("Debug", "Display goodbye layout")
+            setContentView(R.layout.goodbye)
+        }, 3000)
+        Log.d("Debug", "fun calculatePoints End")
     }
 }
