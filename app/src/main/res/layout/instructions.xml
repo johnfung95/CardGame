@@ -78,7 +78,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction_scoring" />
+        app:layout_constraintTop_toBottomOf="@+id/instruction_scoring"
+        app:layout_constraintVertical_bias="0.33" />
 
     <Button
         android:id="@+id/play_button"
@@ -86,13 +87,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/purple_200"
+        android:onClick="createBot"
         android:shadowColor="#F44336"
         android:text="Play"
-        android:onClick="createBot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.746"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction_scoring" />
+        app:layout_constraintTop_toBottomOf="@+id/instruction_scoring"
+        app:layout_constraintVertical_bias="0.33" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

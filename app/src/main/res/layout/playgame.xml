@@ -33,24 +33,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.571" />
 
+
     <TextView
         android:id="@+id/robotscore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:gravity="center_horizontal"
+        android:text="Robot Scores: "
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="45dp" />
-
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/centertext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/card_background"
+        app:layout_constraintVertical_bias="0.161" />
 
     <TextView
         android:id="@+id/playerscore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:gravity="center_horizontal"
+        android:text="Player Scores: "
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="635dp" />
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/centertext"
+        app:layout_constraintVertical_bias="0.661" />
 
     <ImageView
         android:id="@+id/robotcard1"
