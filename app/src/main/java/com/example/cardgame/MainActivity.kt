@@ -15,10 +15,13 @@ import kotlin.random.Random
 var x: Int = 0
 var round: Int = 0
 var cardArr = arrayListOf(R.drawable.card01, R.drawable.card02, R.drawable.card03, R.drawable.card04, R.drawable.card05, R.drawable.card06, R.drawable.card07, R.drawable.card08, R.drawable.card09, R.drawable.card10, R.drawable.card11, R.drawable.card12, R.drawable.card13, R.drawable.card14, R.drawable.card15, R.drawable.card16, R.drawable.card17, R.drawable.card18, R.drawable.card19, R.drawable.card20, R.drawable.card21, R.drawable.card22, R.drawable.card23, R.drawable.card24, R.drawable.card25, R.drawable.card26, R.drawable.card27, R.drawable.card28, R.drawable.card29, R.drawable.card30, R.drawable.card31, R.drawable.card32, R.drawable.card33, R.drawable.card34, R.drawable.card35, R.drawable.card36, R.drawable.card37, R.drawable.card38, R.drawable.card39, R.drawable.card40, R.drawable.card41, R.drawable.card42, R.drawable.card43, R.drawable.card44, R.drawable.card45, R.drawable.card46, R.drawable.card47, R.drawable.card48, R.drawable.card49, R.drawable.card50, R.drawable.card51, R.drawable.card52)
+var pointsArr = arrayListOf<Int>(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52)
 val handler = Handler(Looper.getMainLooper())
+var totalPlayerScore = 0
+var totalRobotScore = 0
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        Log.d("Debug", "Start app")
         super.onCreate(savedInstanceState)
         Log.d("Debug", "Start displaying instructions")
         setContentView(R.layout.instructions)
@@ -115,6 +118,8 @@ class MainActivity : AppCompatActivity() {
         val playerScore = findViewById<TextView>(R.id.playerscore)
         val robotScore = findViewById<TextView>(R.id.robotscore)
         val centerText = findViewById<TextView>(R.id.centertext)
+        var currentPlayerScore = 0
+        var currentRobotScore = 0
 
         round += 1
         Log.d("Debug", "round: " + round)
@@ -137,11 +142,11 @@ class MainActivity : AppCompatActivity() {
 
         if (maxCount == 0) {
             Log.d("Debug", "no more cards and go to calculate scores")
-            calculatePoints(v)
+            calculatePointsAtEnd(v)
         } else {
             centerText.text = "Round: " + round + "\nCards Left: " + maxCount
-            playerScore.text = "Player Scores: " + 0
-            robotScore.text = "Robot Scores: " + 0
+            playerScore.text = "Player Scores: " + totalPlayerScore
+            robotScore.text = "Robot Scores: " + totalRobotScore
         }
         Log.d("Debug", "fun calculatePoints Start")
     }
@@ -153,15 +158,24 @@ class MainActivity : AppCompatActivity() {
         Log.d("Debug","cardArr[n]: " + cardArr[n])
         if (isPlayer) {
             tv.setImageResource(cardArr[n])
+            Log.d("Debug","initial cardArr.count(): " + cardArr.count())
+            Log.d("Debug","initial pointsArr.count(): " + pointsArr.count())
             cardArr.removeAt(n)
-            Log.d("Debug","cardArr.count(): " + cardArr.count())
+            pointsArr.removeAt(n)
+            Log.d("Debug","after remove cardArr.count(): " + cardArr.count())
+            Log.d("Debug","after remove pointsArr.count(): " + pointsArr.count())
         } else {
+            Log.d("Debug","initial cardArr.count(): " + cardArr.count())
+            Log.d("Debug","initial pointsArr.count(): " + pointsArr.count())
             cardArr.removeAt(n)
+            pointsArr.removeAt(n)
+            Log.d("Debug","after remove cardArr.count(): " + cardArr.count())
+            Log.d("Debug","after remove pointsArr.count(): " + pointsArr.count())
         }
         Log.d("Debug", "fun playDrawCard End")
     }
 
-    fun calculatePoints(v: View) {
+    fun calculatePointsAtEnd(v: View) {
         Log.d("Debug", "fun calculatePoints Start")
         Log.d("Debug", "Display calculate score layout")
         setContentView(R.layout.calscore)

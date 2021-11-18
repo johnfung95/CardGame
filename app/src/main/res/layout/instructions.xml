@@ -31,39 +31,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448" />
+        app:layout_constraintVertical_bias="0.709" />
 
     <TextView
         android:id="@+id/instruction_scoring"
-        android:layout_width="248dp"
-        android:layout_height="208dp"
+        android:layout_width="312dp"
+        android:layout_height="266dp"
         android:gravity="center_vertical"
+        android:paddingLeft="20dp"
         android:text="@string/instruction_scoring"
         android:textColor="@color/black"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction_content"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/instruction_content"
-        android:layout_width="336dp"
-        android:layout_height="219dp"
+        android:layout_width="377dp"
+        android:layout_height="233dp"
         android:layout_marginTop="32dp"
         android:fontFamily="sans-serif"
         android:gravity="center_vertical"
         android:padding="10dp"
         android:text="@string/instruction_body"
         android:textColor="@color/black"
+        android:textSize="16dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171" />
+        app:layout_constraintVertical_bias="0.168" />
 
     <Button
         android:id="@+id/quit_button"
@@ -79,7 +82,7 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction_scoring"
-        app:layout_constraintVertical_bias="0.33" />
+        app:layout_constraintVertical_bias="0.164" />
 
     <Button
         android:id="@+id/play_button"
@@ -95,6 +98,6 @@
         app:layout_constraintHorizontal_bias="0.746"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction_scoring"
-        app:layout_constraintVertical_bias="0.33" />
+        app:layout_constraintVertical_bias="0.164" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
