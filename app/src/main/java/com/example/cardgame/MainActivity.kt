@@ -13,7 +13,7 @@ import android.widget.TextView
 import kotlin.random.Random
 
 public var x = 0
-public val cardArr = arrayOf(R.drawable.card01, R.drawable.card02, R.drawable.card03, R.drawable.card04, R.drawable.card05, R.drawable.card06, R.drawable.card07, R.drawable.card08, R.drawable.card09, R.drawable.card10, R.drawable.card11, R.drawable.card12, R.drawable.card13, R.drawable.card14, R.drawable.card15, R.drawable.card16, R.drawable.card17, R.drawable.card18, R.drawable.card19, R.drawable.card20, R.drawable.card21, R.drawable.card22, R.drawable.card23, R.drawable.card24, R.drawable.card25, R.drawable.card26, R.drawable.card27, R.drawable.card28, R.drawable.card29, R.drawable.card30, R.drawable.card31, R.drawable.card32, R.drawable.card33, R.drawable.card34, R.drawable.card35, R.drawable.card36, R.drawable.card37, R.drawable.card38, R.drawable.card39, R.drawable.card40, R.drawable.card41, R.drawable.card42, R.drawable.card43, R.drawable.card44, R.drawable.card45, R.drawable.card46, R.drawable.card47, R.drawable.card48, R.drawable.card49, R.drawable.card50, R.drawable.card51, R.drawable.card52)
+public val cardArr = arrayListOf(R.drawable.card01, R.drawable.card02, R.drawable.card03, R.drawable.card04, R.drawable.card05, R.drawable.card06, R.drawable.card07, R.drawable.card08, R.drawable.card09, R.drawable.card10, R.drawable.card11, R.drawable.card12, R.drawable.card13, R.drawable.card14, R.drawable.card15, R.drawable.card16, R.drawable.card17, R.drawable.card18, R.drawable.card19, R.drawable.card20, R.drawable.card21, R.drawable.card22, R.drawable.card23, R.drawable.card24, R.drawable.card25, R.drawable.card26, R.drawable.card27, R.drawable.card28, R.drawable.card29, R.drawable.card30, R.drawable.card31, R.drawable.card32, R.drawable.card33, R.drawable.card34, R.drawable.card35, R.drawable.card36, R.drawable.card37, R.drawable.card38, R.drawable.card39, R.drawable.card40, R.drawable.card41, R.drawable.card42, R.drawable.card43, R.drawable.card44, R.drawable.card45, R.drawable.card46, R.drawable.card47, R.drawable.card48, R.drawable.card49, R.drawable.card50, R.drawable.card51, R.drawable.card52)
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -102,14 +102,29 @@ class MainActivity : AppCompatActivity() {
     public fun playDrawCard(v:View) {
         val playCardTv1 = findViewById<ImageView>(R.id.playercard1)
         val playCardTv2 = findViewById<ImageView>(R.id.playercard2)
+        val robotCardTv1 = findViewById<ImageView>(R.id.robotcard1)
+        val robotCardTv2 = findViewById<ImageView>(R.id.robotcard2)
 
-        var leftCards = cardArr
+        // TODO: consider making an interface for robot and player
+        var maxCount = cardArr.count()
+        playerGetCardsFromArray(playCardTv1,  maxCount, true)
+        maxCount = cardArr.count()
+        playerGetCardsFromArray(playCardTv2,  maxCount, true)
+        maxCount = cardArr.count()
+        playerGetCardsFromArray(robotCardTv1, maxCount, false)
+        maxCount = cardArr.count()
+        playerGetCardsFromArray(robotCardTv2, maxCount, false)
+    }
 
-        val m = Random.nextInt(cardArr.count())
-        val n = Random.nextInt(cardArr.count())
-
-        playCardTv1.setImageResource(cardArr[m])
-        playCardTv2.setImageResource(cardArr[n])
+    private fun playerGetCardsFromArray(tv:ImageView,  maxCount:Int, isPlayer: Boolean = false) {
+        var n = Random.nextInt(maxCount)
+        Log.d("Debug","n: " + n)
+        if (isPlayer) {
+            tv.setImageResource(cardArr[n])
+            cardArr.drop(n)
+        } else {
+            cardArr.drop(n)
+        }
     }
 
     public fun calculatePoints(v: View) {
