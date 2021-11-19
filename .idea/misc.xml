@@ -6,14 +6,16 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/cardbackground.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.27395833333333336" />
-        <entry key="app/src/main/res/layout/calscore.xml" value="0.10572916666666667" />
+        <entry key="app/src/main/res/layout/calscore.xml" value="0.1390625" />
         <entry key="app/src/main/res/layout/createbot.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/endingpage.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fadeout.xml" value="0.16756756756756758" />
         <entry key="app/src/main/res/layout/firststart.xml" value="0.25" />
         <entry key="app/src/main/res/layout/goodbye.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/instruction.xml" value="0.375" />
         <entry key="app/src/main/res/layout/instructions.xml" value="0.25" />
         <entry key="app/src/main/res/layout/maingame.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/playgame.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/playgame.xml" value="0.18888888888888888" />
       </map>
     </option>
   </component>
@@ -22,5 +24,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.20859375" />
+      </ProjectState>
+    </option>
   </component>
 </project>

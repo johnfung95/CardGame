@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/card_background"
+        android:layout_width="409dp"
+        android:layout_height="731dp"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/card_background" />
 
+    <TextView
+        android:id="@+id/robotTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal"
+        android:text="Robot Total Score: "
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/playerTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.313" />
+
+    <TextView
+        android:id="@+id/playerTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:gravity="center_horizontal"
+        android:text="Player Total Score: "
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.79" />
+
+    <TextView
+        android:id="@+id/vsText"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:text="VS"
+        android:textSize="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/playerTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/robotTotal"
+        app:layout_constraintVertical_bias="0.253" />
 </androidx.constraintlayout.widget.ConstraintLayout>
