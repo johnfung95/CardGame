@@ -16,6 +16,8 @@
         <entry key="app/src/main/res/layout/instructions.xml" value="0.25" />
         <entry key="app/src/main/res/layout/maingame.xml" value="0.1" />
         <entry key="app/src/main/res/layout/playgame.xml" value="0.18888888888888888" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>
