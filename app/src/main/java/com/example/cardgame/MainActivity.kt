@@ -248,6 +248,78 @@ class MainActivity : AppCompatActivity() {
         Log.d("Debug", "fun playerGetCardsFromArray() End")
     }
 
+    fun alertUserStop(v:View) {
+        Log.d("Debug", "fun alertUserStop() Start")
+        val viewBackground = findViewById<ImageView>(R.id.fadeoutView)
+        val alertTxtBox = findViewById<TextView>(R.id.alertMsgBox)
+        val playerCard1 = findViewById<ImageView>(R.id.playercard1)
+        val playerCard2 = findViewById<ImageView>(R.id.playercard2)
+        val robotCard1 = findViewById<ImageView>(R.id.robotcard1)
+        val robotCard2 = findViewById<ImageView>(R.id.robotcard2)
+        val centerText = findViewById<TextView>(R.id.centertext)
+        val drawButton2 = findViewById<Button>(R.id.drawbutton2)
+        val stopButton = findViewById<Button>(R.id.stopbutton)
+        val robotScore = findViewById<TextView>(R.id.robotscore)
+        val playerScore = findViewById<TextView>(R.id.playerscore)
+        val sureButton = findViewById<Button>(R.id.okayButton)
+        val cancelButton = findViewById<Button>(R.id.cancelButton)
+
+        playerCard1.alpha = 0.1F
+        playerCard2.alpha = 0.1F
+        robotCard1.alpha = 0.1F
+        robotCard2.alpha = 0.1F
+        centerText.alpha = 0.1F
+        drawButton2.isClickable = false
+        drawButton2.alpha = 0.1F
+        stopButton.alpha = 0.1F
+        stopButton.isClickable = false
+        robotScore.alpha = 0.1F
+        playerScore.alpha = 0.1F
+
+        viewBackground.visibility = View.VISIBLE
+        alertTxtBox.visibility = View.VISIBLE
+        sureButton.visibility = View.VISIBLE
+        cancelButton.visibility = View.VISIBLE
+
+        Log.d("Debug", "fun alertUserStop() End")
+    }
+
+    fun cancelStopProcess(v:View) {
+        Log.d("Debug", "fun cancelStopProcess() Start")
+        val viewBackground = findViewById<ImageView>(R.id.fadeoutView)
+        val alertTxtBox = findViewById<TextView>(R.id.alertMsgBox)
+        val playerCard1 = findViewById<ImageView>(R.id.playercard1)
+        val playerCard2 = findViewById<ImageView>(R.id.playercard2)
+        val robotCard1 = findViewById<ImageView>(R.id.robotcard1)
+        val robotCard2 = findViewById<ImageView>(R.id.robotcard2)
+        val centerText = findViewById<TextView>(R.id.centertext)
+        val drawButton2 = findViewById<Button>(R.id.drawbutton2)
+        val stopButton = findViewById<Button>(R.id.stopbutton)
+        val robotScore = findViewById<TextView>(R.id.robotscore)
+        val playerScore = findViewById<TextView>(R.id.playerscore)
+        val sureButton = findViewById<Button>(R.id.okayButton)
+        val cancelButton = findViewById<Button>(R.id.cancelButton)
+
+        playerCard1.alpha = 1.0F
+        playerCard2.alpha = 1.0F
+        robotCard1.alpha = 1.0F
+        robotCard2.alpha = 1.0F
+        centerText.alpha = 1.0F
+        drawButton2.isClickable = true
+        drawButton2.alpha = 1.0F
+        stopButton.isClickable = true
+        stopButton.alpha = 1.0F
+        robotScore.alpha = 1.0F
+        playerScore.alpha = 1.0F
+
+        viewBackground.visibility = View.INVISIBLE
+        alertTxtBox.visibility = View.INVISIBLE
+        sureButton.visibility = View.INVISIBLE
+        cancelButton.visibility = View.INVISIBLE
+
+        Log.d("Debug", "fun cancelStopProcess() End")
+    }
+
     fun calculatePointsAtEnd(v:View) {
         Log.d("Debug", "fun calculatePointsAtEnd() Start")
         Log.d("Debug", "Display calculate score layout")

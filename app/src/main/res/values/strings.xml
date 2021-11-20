@@ -5,4 +5,5 @@
     <string name="instruction_body">The Player has to draw cards from a deck of cards.\nThe Player will be playing against a robot.\nThe Goal is to gather higher scores against the robot.\nEach turn, the player will be drawing 2 cards.\nThe Player can choose to continue or stop after the cards are drawn.\nWhen the Player chooses to continue, a new turn starts.\nWhen the player chooses to stop, the Game will end and scores will be calculated immediately.</string>
     <string name="instruction_scoring">Scoring:\n\n- Pair of Aces = 100 points\n- Pair of K, Q, J = 50 points\n- Pair of 10 = 20 points\n- Any other pairs = 10 points\n- Single Ace = 5 points\n- No pair and No Ace = -2 points\n\nGood Luck~\nHit [Play] to Continue or [Quit] to quit.</string>
     <string name="start_instruction">Draw your cards to start</string>
+    <string name="alertMsg">Are you sure to stop?\nIt will proceed to score calculation and end the game immediately.</string>
 </resources>
