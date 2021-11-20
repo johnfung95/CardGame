@@ -41,7 +41,7 @@
         android:paddingLeft="20dp"
         android:text="@string/instruction_scoring"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -51,22 +51,22 @@
 
     <TextView
         android:id="@+id/instruction_content"
-        android:layout_width="377dp"
-        android:layout_height="233dp"
+        android:layout_width="373dp"
+        android:layout_height="282dp"
         android:layout_marginTop="32dp"
         android:fontFamily="sans-serif"
         android:gravity="center_vertical"
         android:padding="10dp"
         android:text="@string/instruction_body"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="17dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintVertical_bias="0.13" />
 
     <Button
         android:id="@+id/quit_button"

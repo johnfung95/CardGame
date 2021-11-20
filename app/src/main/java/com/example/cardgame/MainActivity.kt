@@ -181,8 +181,8 @@ class MainActivity : AppCompatActivity() {
         Log.d("Debug", "totalRobotScore: " + totalRobotScore)
 
         centerText.text = "Round: " + round + "\nCards Left: " + maxCount
-        playerScore.text = "Current Round Scores: " + thisRoundPlayerScore + "\nTotal Scores: " + totalPlayerScore
-        robotScore.text = "Current Round Scores: " + thisRoundRobotScore + "\nTotal Scores: " + totalRobotScore
+        playerScore.text = "Current Player Round Scores: " + thisRoundPlayerScore + "\nPlayer Total Scores: " + totalPlayerScore
+        robotScore.text = "Current Robot Round Scores: " + thisRoundRobotScore + "\nRobot Total Scores: " + totalRobotScore
         if (maxCount == 0) {
             Log.d("Debug", "no more cards and go to calculate scores")
             drawButton1.isClickable = false
@@ -346,7 +346,11 @@ class MainActivity : AppCompatActivity() {
 
     fun quitGame(v:View) {
         Log.d("Debug", "fun quitGame() Start" )
-        finish()
+        setContentView(R.layout.goodbye)
+        handler.postDelayed({
+            finish()
+        }, 3000)
+
         Log.d("Debug", "fun quitGame() End" )
     }
 }
